@@ -87,9 +87,9 @@
 
         <!-- Configurazione rotori -->
         <div class="rotor-config">
-            <h3>Configurazione Rotori</h3>
+            <h3>Configurazione Settori</h3>
             <div class="rotor">
-                <label for="rotor1">Rotore 1:</label>
+                <label for="rotor1">Settore 1:</label>
                 <select id="rotor1">
                     <option value="I">I</option>
                     <option value="II">II</option>
@@ -97,11 +97,11 @@
                     <option value="IV">IV</option>
                     <option value="V">V</option>
                 </select>
-                <input type="number" id="ring1" min="0" max="25" placeholder="Anello">
-                <input type="text" id="pos1" maxlength="1" placeholder="Posizione">
+                <input type="number" id="ring1" min="0" max="25" placeholder="Nummer">
+                <input type="text" id="pos1" maxlength="1" placeholder="Brief">
             </div>
             <div class="rotor">
-                <label for="rotor2">Rotore 2:</label>
+                <label for="rotor2">Settore 2:</label>
                 <select id="rotor2">
                     <option value="I">I</option>
                     <option value="II">II</option>
@@ -109,11 +109,11 @@
                     <option value="IV">IV</option>
                     <option value="V">V</option>
                 </select>
-                <input type="number" id="ring2" min="0" max="25" placeholder="Anello">
-                <input type="text" id="pos2" maxlength="1" placeholder="Posizione">
+                <input type="number" id="ring2" min="0" max="25" placeholder="Nummer">
+                <input type="text" id="pos2" maxlength="1" placeholder="Brief">
             </div>
             <div class="rotor">
-                <label for="rotor3">Rotore 3:</label>
+                <label for="rotor3">Settore 3:</label>
                 <select id="rotor3">
                     <option value="I">I</option>
                     <option value="II">II</option>
@@ -121,36 +121,37 @@
                     <option value="IV">IV</option>
                     <option value="V">V</option>
                 </select>
-                <input type="number" id="ring3" min="0" max="25" placeholder="Anello">
-                <input type="text" id="pos3" maxlength="1" placeholder="Posizione">
+                <input type="number" id="ring3" min="0" max="25" placeholder="Nummer">
+                <input type="text" id="pos3" maxlength="1" placeholder="Brief">
             </div>
         </div>
 
         <!-- Configurazione del riflettore -->
         <div class="reflector-config">
-            <h3>Riflettore</h3>
+            <h3>Combinatore</h3>
             <select id="reflector">
-                <option value="B">B</option>
-                <option value="C">C</option>
-                <option value="ThinB">TB</option>
-                <option value="ThinC">TC</option>
+                <option value="B">B1</option>
+                <option value="C">C1</option>
+                <option value="ThinB">B2</option>
+                <option value="ThinC">C2</option>
             </select>
         </div>
 
         <!-- plugboard -->
         <div class="plugboard-config">
-            <h3>Plugboard</h3>
-            <input type="text" id="plugboard" placeholder="ins. coppie">
+            <h3>Dispositore</h3>
+            <input type="text" id="plugboard" placeholder="Es. 'AB CD'">
         </div>
 
         <!-- barra di stato dei rotori -->
         <div class="rotor-state">
-            <h3>Stato Rotori</h3>
+            <h3>Ordine dei Settori</h3>
             <div id="rotorStateDisplay"></div>
         </div>
 
         <!-- per resettare i rotori allo stato di partenza -->
-        <button id="resetRotorsBtn">Posizione iniziale rotori</button>
+        <button id="resetRotorsBtn">Inizializza settori </button>
+        <h6>Necessario per nuovo messaggio</h6>
     </div>
 
     <script src="enigma.js"></script>
