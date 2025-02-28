@@ -1,0 +1,203 @@
+body {
+  font-family:'Times New Roman', Times, serif;
+  background-color: #f4f4f4;
+  color: #000000;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.container {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 90%; 
+  max-width: 600px; 
+  text-align: center;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 24px; 
+}
+
+.output-keyboard, .input-keyboard {
+  display: flex;
+  flex-direction: column;
+  gap: 5px; 
+  margin-bottom: 15px;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  gap: 5px; 
+}
+
+.output-letter {
+  width: 30px; 
+  height: 30px; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #000000;
+  border-radius: 50%;
+  background-color: #f9f9f9;
+  font-size: 14px; 
+  font-weight: bold;
+  cursor: default;
+}
+
+.output-letter.active {
+  background-color: #ffe81c;
+  color: #000000;
+}
+
+.input-keyboard button {
+  width: 50px; 
+  height: 50px; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 16px; 
+  border: none;
+  border-radius: 50%;
+  background-color: #6b4c40;
+  color: #fff;
+  cursor: pointer;
+  margin: 2px;
+}
+
+.input-keyboard button:hover {
+  background-color: #c99b55;
+}
+
+.rotor-config, .reflector-config, .plugboard-config {
+  margin-bottom: 15px;
+}
+
+.rotor, .reflector-config, .plugboard-config {
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
+  gap: 5px; 
+  margin-bottom: 10px;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.rotor label, .reflector-config label, .plugboard-config label {
+  width: auto; 
+  font-size: 14px; 
+}
+
+.rotor input, .rotor select, .reflector-config select, .plugboard-config input {
+  padding: 5px;
+  width: 80px; 
+  font-size: 14px; 
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.rotor-state {
+  margin-top: 20px;
+  text-align: center;
+}
+
+#rotorStateDisplay {
+  font-size: 16px;
+  font-weight: bold;
+  color: #000000;
+}
+#resetRotorsBtn {
+  background-color: #000000;
+  color: #ffffff;
+  border: none;
+  border-radius: 25px;
+  padding: 10px 20px;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 20px;
+}
+
+#resetRotorsBtn:hover {
+  background-color: #333333;
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 10px;
+  }
+
+  h1 {
+    font-size: 20px; 
+  }
+
+  .output-letter, .input-keyboard button {
+    width: 25px; 
+    height: 25px; 
+    font-size: 12px; 
+    font-family: 'Times New Roman', Times, serif;
+  }
+
+  .rotor input, .rotor select, .reflector-config select, .plugboard-config input {
+    width: 70px; 
+    font-size: 12px; 
+    font-family: 'Times New Roman', Times, serif;
+  }
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0px; 
+}
+
+.container {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  max-width: 600px;
+  text-align: center;
+  margin-bottom: 20px; 
+}
+
+.link-button-container {
+  margin-top: auto; 
+  text-align: center;
+  width: 15%;
+  padding: 20px 0; /* serve per spaziare il pulsante eheh*/
+}
+
+.link-button {
+  background-color: #000000; /* Sfondo nero */
+  color: #ffffff; /* Testo bianco */
+  border: none;
+  border-radius: 25px; /*serve a fare i bordi stondati*/
+  padding: 10px 20px;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.link-button:hover {
+  background-color: #333333; 
+}
+
+/*ammetto che css fa proprio cagare. potrò anche ricredermi, ma è super scomodo.. mi farai sapere*/
+
+
+/* nik1v */

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La seconda piccola porta</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Geheimtür 2</h1>
+        <div class="input-group">
+            <label for="testo">Testo:</label>
+            <textarea id="testo" placeholder="testo"></textarea>
+        </div>
+        <div class="input-group">
+            <label for="chiave">Clavis aurea:</label>
+            <input type="text" id="chiave" placeholder="Inserisci la chiave">
+        </div>
+        <div class="input-group">
+            <label for="mode">Modalità:</label>
+            <select id="mode">
+                <option value="c">C</option>
+                <option value="d">D</option>
+            </select>
+        </div>
+        <button onclick="processText()">Esegui</button>
+        <div class="input-group">
+            <label for="risultato" class="risultato-label">Risultato:</label>
+            <textarea id="risultato" readonly></textarea>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <div class="link-button-container">
+        <a href="../decr2copia/index.html"><button class="link-button">Geheimtür 1</button></a>
+    </div>
+</body>
+</html>
+
+<!-- nik1v -->
