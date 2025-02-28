@@ -26,6 +26,11 @@ h1 {
   font-size: 24px; 
 }
 
+h5 {
+  text-align: center; 
+  margin-bottom: 20px; 
+}
+
 .output-keyboard, .input-keyboard {
   display: flex;
   flex-direction: column;
