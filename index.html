@@ -201,7 +201,7 @@
 
                 // questo coso aggiorna lo stato rotori
                 const rotorState = enigma.getState();
-                document.getElementById('rotorStateDisplay').textContent = `Rotore 1: ${rotorState[0]}, Rotore 2: ${rotorState[1]}, Rotore 3: ${rotorState[2]}`;
+                document.getElementById('rotorStateDisplay').textContent = `Settore 1: ${rotorState[0]}, Settore 2: ${rotorState[1]}, Settore 3: ${rotorState[2]}`;
             });
         });
 
@@ -214,7 +214,7 @@
                 ];
                 enigma.resetRotors(positions);
                 const rotorState = enigma.getState();
-                document.getElementById('rotorStateDisplay').textContent = `Rotore 1: ${rotorState[0]}, Rotore 2: ${rotorState[1]}, Rotore 3: ${rotorState[2]}`;
+                document.getElementById('rotorStateDisplay').textContent = `Settore 1: ${rotorState[0]}, Settore 2: ${rotorState[1]}, Settore 3: ${rotorState[2]}`;
             }
         });
     </script>
