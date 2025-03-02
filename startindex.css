@@ -1,0 +1,134 @@
+body {
+    font-family: 'Times New Roman', serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+p {
+    margin-bottom: 20px;
+    color: #555;
+}
+
+.led-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.led-red, .led-green {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: gray;
+}
+
+.led-red.active {
+    background-color: red;
+}
+
+.led-green.active {
+    background-color: green;
+}
+
+.input-group.password-input {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: #f9f9f9;
+}
+
+.input-group.password-input .icon {
+    margin-right: 10px;
+    color: #555;
+}
+
+.input-group.password-input input {
+    border: none;
+    outline: none;
+    background: transparent;
+    font-family: 'Times New Roman', serif;
+    font-size: 16px;
+    width: 100%;
+}
+
+.link-button {
+    background-color: #000000;
+    color: #ffffff;
+    border: none;
+    border-radius: 25px;
+    padding: 10px 20px;
+    font-family: 'Times New Roman', serif;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.link-button:hover {
+    background-color: #333333;
+}
+
+#warningMessage {
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.combination-lock {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.rotella {
+    width: 50px;
+    height: 50px;
+    border: 2px solid #000;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    cursor: pointer;
+    user-select: none;
+    overflow: hidden;
+    position: relative;
+}
+
+.rotella .number {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: transform 0.3s ease;
+}
+
+#combinationMessage {
+    margin-top: 10px;
+    font-size: 14px;
+}

@@ -3,226 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EN?DECR2nik1v</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap">
-    <link rel="stylesheet" href="styles.css">
+    <title>Benvenuto</title>
+    <link rel="stylesheet" href="startindex.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <div class="container">
-        <h1>Geheimtür 1</h1>
-        <h6>Prima della digitazione si consiglia di ruotare il proprio <br> 
-        dispositivo mobile in modalità ORIZZONTALE</h6>
+        <h1>Benvenuto nella Geheimtür</h1>
+        <p>Inserisci la password per accedere al servizio.</p>
         
-        <!-- Tastiera (non cliccabile!) -->
-        <div class="output-keyboard">
-            <div class="row">
-                <div class="output-letter" data-letter="Q">Q</div>
-                <div class="output-letter" data-letter="W">W</div>
-                <div class="output-letter" data-letter="E">E</div>
-                <div class="output-letter" data-letter="R">R</div>
-                <div class="output-letter" data-letter="T">T</div>
-                <div class="output-letter" data-letter="Y">Y</div>
-                <div class="output-letter" data-letter="U">U</div>
-                <div class="output-letter" data-letter="I">I</div>
-                <div class="output-letter" data-letter="O">O</div>
-                <div class="output-letter" data-letter="P">P</div>
-            </div>
-            <div class="row">
-                <div class="output-letter" data-letter="A">A</div>
-                <div class="output-letter" data-letter="S">S</div>
-                <div class="output-letter" data-letter="D">D</div>
-                <div class="output-letter" data-letter="F">F</div>
-                <div class="output-letter" data-letter="G">G</div>
-                <div class="output-letter" data-letter="H">H</div>
-                <div class="output-letter" data-letter="J">J</div>
-                <div class="output-letter" data-letter="K">K</div>
-                <div class="output-letter" data-letter="L">L</div>
-            </div>
-            <div class="row">
-                <div class="output-letter" data-letter="Z">Z</div>
-                <div class="output-letter" data-letter="X">X</div>
-                <div class="output-letter" data-letter="C">C</div>
-                <div class="output-letter" data-letter="V">V</div>
-                <div class="output-letter" data-letter="B">B</div>
-                <div class="output-letter" data-letter="N">N</div>
-                <div class="output-letter" data-letter="M">M</div>
-            </div>
+        <!-- led -->
+        <div class="led-container">
+            <div class="led-red active"></div>
+            <div class="led-green"></div>
         </div>
-
-        <!-- Tastiera (cliccabile) -->
-        <div class="input-keyboard">
-            <div class="row">
-                <button data-letter="Q">Q</button>
-                <button data-letter="W">W</button>
-                <button data-letter="E">E</button>
-                <button data-letter="R">R</button>
-                <button data-letter="T">T</button>
-                <button data-letter="Y">Y</button>
-                <button data-letter="U">U</button>
-                <button data-letter="I">I</button>
-                <button data-letter="O">O</button>
-                <button data-letter="P">P</button>
-            </div>
-            <div class="row">
-                <button data-letter="A">A</button>
-                <button data-letter="S">S</button>
-                <button data-letter="D">D</button>
-                <button data-letter="F">F</button>
-                <button data-letter="G">G</button>
-                <button data-letter="H">H</button>
-                <button data-letter="J">J</button>
-                <button data-letter="K">K</button>
-                <button data-letter="L">L</button>
-            </div>
-            <div class="row">
-                <button data-letter="Z">Z</button>
-                <button data-letter="X">X</button>
-                <button data-letter="C">C</button>
-                <button data-letter="V">V</button>
-                <button data-letter="B">B</button>
-                <button data-letter="N">N</button>
-                <button data-letter="M">M</button>
-            </div>
+        
+        <div class="input-group password-input">
+            <i class="fas fa-lock icon"></i>
+            <input type="password" id="passwordInput" placeholder="Inserisci la password">
         </div>
-
-        <!-- Configurazione rotori -->
-        <div class="rotor-config">
-            <h3>Configurazione Settori</h3>
-            <div class="rotor">
-                <label for="rotor1">Settore 1:</label>
-                <select id="rotor1">
-                    <option value="I">I</option>
-                    <option value="II">II</option>
-                    <option value="III">III</option>
-                    <option value="IV">IV</option>
-                    <option value="V">V</option>
-                </select>
-                <input type="number" id="ring1" min="0" max="25" placeholder="Nummer">
-                <input type="text" id="pos1" maxlength="1" placeholder="Brief">
+        
+        <button id="unlockBtn" class="link-button">Sblocca accesso (1)</button>
+        
+        <!-- mess di avviso -->
+        <p id="warningMessage" style="color: red; display: none;">Il servizio è bloccato. Inserisci la password di sblocco.</p>
+        
+        <!-- 2 fase (che rimane all'inizio nascosta) -->
+        <div id="secondStep" style="display: none;">
+            <h2>Inserisci la combinazione</h2>
+            <div class="combination-lock">
+                <div class="rotella" data-index="0">
+                    <div class="number">0</div>
+                </div>
+                <div class="rotella" data-index="1">
+                    <div class="number">0</div>
+                </div>
+                <div class="rotella" data-index="2">
+                    <div class="number">0</div>
+                </div>
+                <div class="rotella" data-index="3">
+                    <div class="number">0</div>
+                </div>
             </div>
-            <div class="rotor">
-                <label for="rotor2">Settore 2:</label>
-                <select id="rotor2">
-                    <option value="I">I</option>
-                    <option value="II">II</option>
-                    <option value="III">III</option>
-                    <option value="IV">IV</option>
-                    <option value="V">V</option>
-                </select>
-                <input type="number" id="ring2" min="0" max="25" placeholder="Nummer">
-                <input type="text" id="pos2" maxlength="1" placeholder="Brief">
-            </div>
-            <div class="rotor">
-                <label for="rotor3">Settore 3:</label>
-                <select id="rotor3">
-                    <option value="I">I</option>
-                    <option value="II">II</option>
-                    <option value="III">III</option>
-                    <option value="IV">IV</option>
-                    <option value="V">V</option>
-                </select>
-                <input type="number" id="ring3" min="0" max="25" placeholder="Nummer">
-                <input type="text" id="pos3" maxlength="1" placeholder="Brief">
-            </div>
+            <button id="unlockCombinationBtn" class="link-button">Sblocca</button>
+            <p id="combinationMessage" style="color: red; display: none;">Combinazione errata!</p>
         </div>
-
-        <!-- Configurazione del riflettore -->
-        <div class="reflector-config">
-            <h3>Combinatore</h3>
-            <select id="reflector">
-                <option value="B">B1</option>
-                <option value="C">C1</option>
-                <option value="ThinB">B2</option>
-                <option value="ThinC">C2</option>
-            </select>
-        </div>
-
-        <!-- plugboard -->
-        <div class="plugboard-config">
-            <h3>Dispositore</h3>
-            <input type="text" id="plugboard" placeholder="Es. 'AB CD'">
-        </div>
-
-        <!-- barra di stato dei rotori -->
-        <div class="rotor-state">
-            <h3>Ordine dei Settori</h3>
-            <div id="rotorStateDisplay"></div>
-        </div>
-
-        <!-- per resettare i rotori allo stato di partenza -->
-        <button id="resetRotorsBtn">Inizializza settori</button>
-        <h6>Inizializzare è NECESSARIO per comporre un nuovo messaggio</h6>
     </div>
 
-    <script src="enigma.js"></script>
-    <script>
-        let enigma;
-
-        function initializeEnigma() {
-            const rotor1 = new Rotor(
-                ROTORS[document.getElementById('rotor1').value].wiring,
-                ROTORS[document.getElementById('rotor1').value].notch,
-                parseInt(document.getElementById('ring1').value),
-                document.getElementById('pos1').value.toUpperCase().charCodeAt(0) - 65
-            );
-            const rotor2 = new Rotor(
-                ROTORS[document.getElementById('rotor2').value].wiring,
-                ROTORS[document.getElementById('rotor2').value].notch,
-                parseInt(document.getElementById('ring2').value),
-                document.getElementById('pos2').value.toUpperCase().charCodeAt(0) - 65
-            );
-            const rotor3 = new Rotor(
-                ROTORS[document.getElementById('rotor3').value].wiring,
-                ROTORS[document.getElementById('rotor3').value].notch,
-                parseInt(document.getElementById('ring3').value),
-                document.getElementById('pos3').value.toUpperCase().charCodeAt(0) - 65
-            );
-
-            const reflector = new Reflector(REFLECTORS[document.getElementById('reflector').value]);
-            const plugboard = new Plugboard(document.getElementById('plugboard').value.toUpperCase());
-
-            enigma = new ENMC([rotor1, rotor2, rotor3], reflector, plugboard);
-        }
-
-        document.querySelectorAll('.input-keyboard button').forEach(button => {
-            button.addEventListener('click', () => {
-                if (!enigma) initializeEnigma();
-
-                const letter = button.getAttribute('data-letter');
-                const encodedLetter = enigma.encodeCharacter(letter);
-
-                // Illumina la lettera della tastiera sopra dio can, ma alla fine è una funz di css
-                document.querySelectorAll('.output-letter').forEach(outputLetter => {
-                    outputLetter.classList.remove('active');
-                    if (outputLetter.getAttribute('data-letter') === encodedLetter) {
-                        outputLetter.classList.add('active');
-                    }
-                });
-
-                // questo coso aggiorna lo stato rotori
-                const rotorState = enigma.getState();
-                document.getElementById('rotorStateDisplay').textContent = `Settore 1: ${rotorState[0]}, Settore 2: ${rotorState[1]}, Settore 3: ${rotorState[2]}`;
-            });
-        });
-
-        document.getElementById('resetRotorsBtn').addEventListener('click', () => {
-            if (enigma) {
-                const positions = [
-                    document.getElementById('pos1').value.toUpperCase().charCodeAt(0) - 65,
-                    document.getElementById('pos2').value.toUpperCase().charCodeAt(0) - 65,
-                    document.getElementById('pos3').value.toUpperCase().charCodeAt(0) - 65
-                ];
-                enigma.resetRotors(positions);
-                const rotorState = enigma.getState();
-                document.getElementById('rotorStateDisplay').textContent = `Settore 1: ${rotorState[0]}, Settore 2: ${rotorState[1]}, Settore 3: ${rotorState[2]}`;
-            }
-        });
-    </script>
-    <div class="link-button-container">
-        <a href="code.html"><button class="link-button">Geheimtür 2</button></a>
-    </div>
+    <script src="Scriptindex.js"></script>
 </body>
 </html>
-
-
-<!-- nik1v -->

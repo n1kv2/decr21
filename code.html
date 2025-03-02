@@ -5,6 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>La seconda piccola porta</title>
     <link rel="stylesheet" href="style.css">
+    <script>
+        // Controlla lo stato di sblocco all'avvio
+        window.addEventListener('load', () => {
+            const isUnlocked = sessionStorage.getItem('isUnlocked');
+            if (isUnlocked !== 'true') {
+                // Se l'accesso non è sbloccato, reindirizza alla pagina di login
+                window.location.href = "index.html";
+            }
+        });
+    </script>
 </head>
 <body>
     <div class="container">
@@ -32,7 +42,7 @@
     </div>
     <script src="script.js"></script>
     <div class="link-button-container">
-        <a href="index.html"><button class="link-button">Geheimtür 1</button></a>
+        <a href="codestart.html"><button class="link-button">Geheimtür 1</button></a>
     </div>
 </body>
 </html>
