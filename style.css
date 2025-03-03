@@ -60,6 +60,7 @@ button {
     cursor: pointer;
     font-size: 16px;
     font-family: 'Times New Roman', serif;
+    margin: 0 auto;
 }
 
 button:hover {
