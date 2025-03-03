@@ -88,6 +88,7 @@ body {
     width: 90%;
     max-width: 600px;
     text-align: center;
+    margin: 0 auto;
     
   }
   
@@ -108,10 +109,21 @@ body {
     font-size: 16px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    width: 15%;
+    max-width: 200px;
+    margin: 0 auto;
 }
 
 .link-button:hover {
     background-color: #333333; /* Sfondo al passaggio del mouse */
+}
+
+@media (max-width: 480px) {
+    .link-button {
+        font-size: 16px;
+        padding: 8px 16px;
+        max-width: 150px;
+    }
 }
 
 /* nik1v */
