@@ -5,11 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EN?DECR2nik1v nd flr</title>
     <script>
-        // Controlla lo stato di sblocco all'avvio
         window.addEventListener('load', () => {
             const isUnlocked = sessionStorage.getItem('isUnlocked');
             if (isUnlocked !== 'true') {
-                // Se l'accesso non è sbloccato, reindirizza alla pagina di login
                 window.location.href = "index.html";
             }
         });
@@ -17,30 +15,29 @@
 </head>
 
 <style>
-/* Stili Generali */
 body {
     font-family: 'Montserrat', sans-serif;
-    background-color: #f0f2f5; /* Sfondo grigio chiaro */
+    background-color: #f0f2f5; 
     color: #333;
     display: flex;
-    flex-direction: column; /* Allinea container e bottone verticalmente */
+    flex-direction: column; 
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     margin: 0;
-    padding: 20px 0; /* Aggiunge un po' di spazio sopra e sotto */
+    padding: 20px 0; 
     box-sizing: border-box;
 }
 
 .container {
     background-color: #ffffff;
     padding: 40px;
-    border-radius: 15px; /* Bordi più arrotondati */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Ombra più morbida */
+    border-radius: 15px; 
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); 
     width: 90%;
-    max-width: 500px; /* Larghezza ottimale per questo form */
-    text-align: left; /* Allinea le label a sinistra */
-    margin-bottom: 20px; /* Spazio prima del pulsante menu */
+    max-width: 500px; 
+    text-align: left; 
+    margin-bottom: 20px; 
 }
 
 h1 {
@@ -60,83 +57,78 @@ h1 {
 label {
     display: block;
     margin-bottom: 8px;
-    font-weight: 600; /* Testo label più marcato */
+    font-weight: 600; 
     font-size: 1.05em;
     color: #444;
 }
 
-/* Stile per tutti gli input, textarea e select */
 textarea, 
 input[type="text"], 
 select {
     width: 100%;
     padding: 12px 15px;
     border: 1px solid #ccc;
-    border-radius: 8px; /* Bordi arrotondati */
+    border-radius: 8px; 
     font-size: 1.05em;
-    font-family: 'Roboto Mono', monospace; /* Font monospace per coerenza */
+    font-family: 'Roboto Mono', monospace; 
     color: #333;
     background-color: #fff;
     box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
-    box-sizing: border-box; /* Cruciale per il width 100% */
+    box-sizing: border-box; 
 }
 
 textarea {
     resize: none;
-    min-height: 120px; /* Altezza minima per le textarea */
+    min-height: 120px; 
 }
 
 textarea:focus, 
 input[type="text"]:focus, 
 select:focus {
-    border-color: #000; /* Colore al focus */
+    border-color: #000; 
     box-shadow: inset 0 1px 3px rgba(0,0,0,0.05), 0 0 0 3px rgba(0,0,0,0.1);
     outline: none;
 }
 
-/* Pulsante Esegui */
 button[onclick="processText()"] {
     width: 100%;
     padding: 12px 30px;
     background-color: #000000;
     color: #ffffff;
     border: none;
-    border-radius: 25px; /* Pill shape */
+    border-radius: 25px; 
     cursor: pointer;
     font-size: 1.1em;
     font-family: 'Montserrat', sans-serif;
     font-weight: 600;
     transition: background-color 0.3s ease, transform 0.2s ease;
-    margin-top: 10px; /* Spazio sopra il pulsante */
+    margin-top: 10px; 
 }
 
 button[onclick="processText()"]:hover {
     background-color: #333333;
-    transform: translateY(-2px); /* Lieve sollevamento */
+    transform: translateY(-2px); 
 }
 
-/* Label Risultato */
 .risultato-label {
-    margin-top: 30px; /* Più spazio prima del risultato */
+    margin-top: 30px; 
 }
 
-/* Textarea Risultato */
 #risultato {
-    background-color: #f8f8f8; /* Sfondo leggermente grigio per output */
+    background-color: #f8f8f8; 
     color: #555;
     font-weight: 500;
 }
 
-/* Pulsante Menu */
 .link-button-container {
     margin: 0;
     padding: 0;
-    width: auto; /* Rimuove la larghezza fissa */
+    width: auto; 
 }
 
 .link-button {
-    background-color: #000000; /* Grigio per azione secondaria */
+    background-color: #000000; 
     color: #ffffff;
     border: none;
     border-radius: 25px;
@@ -155,7 +147,6 @@ button[onclick="processText()"]:hover {
     transform: translateY(-2px);
 }
 
-/* Responsive */
 @media (max-width: 480px) {
     .container {
         padding: 25px;
@@ -227,7 +218,6 @@ function processText() {
     document.getElementById("risultato").value = risultato;
 }
 
-// nik1v
 
     </script>
 
@@ -236,5 +226,3 @@ function processText() {
     </div>
 </body>
 </html>
-
-<!-- nik1v -->
