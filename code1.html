@@ -7,11 +7,9 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap">
     
     <script>
-        // Controlla lo stato di sblocco all'avvio
         window.addEventListener('load', () => {
             const isUnlocked = sessionStorage.getItem('isUnlocked');
             if (isUnlocked !== 'true') {
-                // Se l'accesso non è sbloccato, reindirizza alla pagina di login
                 window.location.href = "index.html";
             }
         });
@@ -26,7 +24,7 @@
 
 body {
     font-family: 'Montserrat', sans-serif;
-    background-color: #f0f2f5; /* Sfondo grigio chiaro */
+    background-color: #f0f2f5; 
     color: #333;
     margin: 0;
     padding: 20px 0;
@@ -77,7 +75,6 @@ h6 {
     margin-bottom: 20px;
 }
 
-/* Tastiera Output (Luci) */
 .output-keyboard {
     display: flex;
     flex-direction: column;
@@ -92,7 +89,7 @@ h6 {
 .row {
     display: flex;
     justify-content: center;
-    gap: 8px; /* Spazio standard tra i tasti/luci */
+    gap: 8px; 
 }
 
 .output-letter {
@@ -112,13 +109,12 @@ h6 {
 }
 
 .output-letter.active {
-    background-color: #ffe81c; /* Giallo acceso */
+    background-color: #ffe81c; 
     color: #000;
     border-color: #f0c000;
     box-shadow: 0 0 15px #ffe81c, 0 0 5px #ffe81c;
 }
 
-/* Tastiera Input (Pulsanti) */
 .input-keyboard {
     display: flex; 
     flex-direction: column;
@@ -127,7 +123,7 @@ h6 {
 }
 
 .input-keyboard .row {
-    gap: 8px; /* ✨ FIX: Spaziatura orizzontale corretta */
+    gap: 8px; 
 }
 
 .input-keyboard button {
@@ -146,7 +142,7 @@ h6 {
     cursor: pointer;
     transition: background-color 0.2s ease, transform 0.1s ease;
     box-shadow: 0 3px 5px rgba(0,0,0,0.2);
-    margin: 0; /* ✨ FIX CRUCIALE: Rimuove margini extra */
+    margin: 0; 
 }
 
 .input-keyboard button:hover {
@@ -159,7 +155,6 @@ h6 {
     box-shadow: 0 1px 2px rgba(0,0,0,0.2);
 }
 
-/* Sezioni di Configurazione */
 .rotor-config, .reflector-config, .plugboard-config {
     margin-bottom: 15px;
     padding: 15px;
@@ -184,7 +179,6 @@ h6 {
     text-align: right;
 }
 
-/* Stile per Select e Input */
 input[type="number"],
 input[type="text"],
 select {
@@ -216,7 +210,6 @@ input:focus, select:focus {
     box-shadow: 0 0 0 3px rgba(0,0,0,0.1);
 }
 
-/* Stato Rotori Display */
 .rotor-status-area {
     text-align: center;
     padding-top: 20px;
@@ -224,32 +217,26 @@ input:focus, select:focus {
     margin-top: 30px;
 }
 
-/* AGGIORNAMENTO FONDAMENTALE: Usa GRID per forzare l'impilamento e la centratura */
 .rotor-state-display-container {
     display: grid;
-    grid-template-columns: repeat(3, auto); /* 3 colonne per i 3 settori */
-    justify-content: center; /* Centra l'intera griglia orizzontalmente */
+    grid-template-columns: repeat(3, auto); 
+    justify-content: center; 
     align-items: center;
-    gap: 5px 30px; /* 5px verticale, 30px orizzontale tra i settori */
+    gap: 5px 30px; 
     margin-top: 20px;
     margin-bottom: 20px;
 }
 
-/* Posizionamento nella Griglia */
-/* Settore 1 (Etichetta e Display) */
 .rotor-state-display-container > div:nth-child(1) { grid-row: 1; grid-column: 1; justify-self: center; }
 .rotor-state-display-container > div:nth-child(2) { grid-row: 2; grid-column: 1; justify-self: center; }
 
-/* Settore 2 (Etichetta e Display) */
 .rotor-state-display-container > div:nth-child(3) { grid-row: 1; grid-column: 2; justify-self: center; }
 .rotor-state-display-container > div:nth-child(4) { grid-row: 2; grid-column: 2; justify-self: center; }
 
-/* Settore 3 (Etichetta e Display) */
 .rotor-state-display-container > div:nth-child(5) { grid-row: 1; grid-column: 3; justify-self: center; }
 .rotor-state-display-container > div:nth-child(6) { grid-row: 2; grid-column: 3; justify-self: center; }
 
 
-/* Stile Etichette */
 .display-label {
     font-family: 'Montserrat', sans-serif;
     font-size: 0.8em;
@@ -258,7 +245,6 @@ input:focus, select:focus {
     text-align: center; 
 }
 
-/* Stile Display VFD */
 .digital-display {
     background-color: #0d0d0d; 
     border: 1px solid #333;
@@ -277,13 +263,12 @@ input:focus, select:focus {
 .digital-display .digit {
     font-family: 'Share Tech Mono', monospace; 
     font-size: 1.5em;
-    color: #00ff00; /* Verde brillante VFD */
+    color: #00ff00; 
     text-shadow: 0 0 5px #00ff00; 
     opacity: 1; 
     transition: opacity 0.1s ease-out;
 }
 
-/* Stile per il pulsante Reset/Inizializza */
 .reset-button-container {
     margin-top: 20px;
     margin-bottom: 20px;
@@ -307,7 +292,6 @@ input:focus, select:focus {
     transform: translateY(-2px);
 }
 
-/* Pulsanti (Menu) */
 .link-button {
     background-color: #000000;
     color: #ffffff;
@@ -335,7 +319,6 @@ input:focus, select:focus {
     text-align: center;
 }
 
-/* Responsività */
 @media (max-width: 600px) {
     .container {
         padding: 15px;
@@ -349,9 +332,8 @@ input:focus, select:focus {
     .row { gap: 5px; } 
     .output-keyboard { padding: 10px; gap: 5px; }
 
-    /* Responsività del display rotori */
     .rotor-state-display-container {
-        gap: 5px 15px; /* Riduci lo spazio orizzontale */
+        gap: 5px 15px; 
     }
 
     .rotor {
@@ -376,7 +358,6 @@ input:focus, select:focus {
         <h6>Prima della digitazione si consiglia di ruotare il proprio <br> 
         dispositivo mobile in modalità ORIZZONTALE</h6>
         
-        <!-- Tastiera (non cliccabile!) -->
         <div class="output-keyboard">
             <div class="row">
                 <div class="output-letter" data-letter="Q">Q</div>
@@ -412,7 +393,6 @@ input:focus, select:focus {
             </div>
         </div>
 
-        <!-- Tastiera (cliccabile) -->
         <div class="input-keyboard">
             <div class="row">
                 <button data-letter="Q">Q</button>
@@ -465,11 +445,10 @@ input:focus, select:focus {
             </div>
         </div>
 
-        <h6>Inizializzare è NECESSARIO per comporre un nuovo messaggio <br>
-            ciao FCST in baseline
+        <h6>Inizializzare è NECESSARIO per comporre un nuovo messaggio. <br>
+            - Ciao FCST in baseline -
         </h6>
 
-        <!-- Configurazione rotori -->
         <div class="rotor-config">
             <h3>Configurazione Settori</h3>
             <div class="rotor">
@@ -510,7 +489,6 @@ input:focus, select:focus {
             </div>
         </div>
 
-        <!-- Configurazione del riflettore -->
         <div class="reflector-config">
             <h3>Combinatore</h3>
             <select id="reflector">
@@ -521,7 +499,6 @@ input:focus, select:focus {
             </select>
         </div>
 
-        <!-- plugboard -->
         <div class="plugboard-config">
             <h3>Dispositore</h3>
             <input type="text" id="plugboard" placeholder="Es. 'AB CD'">
@@ -616,7 +593,7 @@ class ENMC {
 
   encodeCharacter(c) {
       if (!/[A-Z]/.test(c)) {
-          return c; // 
+          return c; 
       }
       c = this.plugboard.swap(c);
       this.rotors.forEach(rotor => (c = rotor.encodeForward(c)));
@@ -647,12 +624,11 @@ class ENMC {
       return message
           .toUpperCase()
           .split("")
-          .map(c => /[A-Z]/.test(c) ? this.encodeCharacter(c) : c) // Mantieni spazi e altri caratteri
+          .map(c => /[A-Z]/.test(c) ? this.encodeCharacter(c) : c) 
           .join("");
   }
 }
 
-// funz princ
 document.getElementById('rotor1').addEventListener('change', () => initializeEnigma());
 document.getElementById('rotor2').addEventListener('change', () => initializeEnigma());
 document.getElementById('rotor3').addEventListener('change', () => initializeEnigma());
@@ -665,7 +641,6 @@ document.getElementById('pos3').addEventListener('change', () => initializeEnigm
 document.getElementById('reflector').addEventListener('change', () => initializeEnigma());
 document.getElementById('plugboard').addEventListener('change', () => initializeEnigma());
 
-// Funzione per inizializzare
 function initializeEnigma() {
     const rotor1 = new Rotor(
         ROTORS[document.getElementById('rotor1').value].wiring,
@@ -700,7 +675,6 @@ document.querySelectorAll('.input-keyboard button').forEach(button => {
         const letter = button.getAttribute('data-letter');
         const encodedLetter = enigma.encodeCharacter(letter);
 
-        // Illumina la lettera 
         document.querySelectorAll('.output-letter').forEach(outputLetter => {
             outputLetter.classList.remove('active');
             if (outputLetter.getAttribute('data-letter') === encodedLetter) {
@@ -708,19 +682,16 @@ document.querySelectorAll('.input-keyboard button').forEach(button => {
             }
         });
 
-        // Aggiorna lo stato dei rotori
         const rotorState = enigma.getState();
         document.getElementById('rotorStateDisplay').textContent = `Rotore 1: ${rotorState[0]}, Rotore 2: ${rotorState[1]}, Rotore 3: ${rotorState[2]}`;
     });
 });
 
 document.getElementById("decodeBtn").addEventListener("click", () => {
-  // La decifratura è identica alla cifratura, ma non l'ho inserita (chiaramente haha)
+  
 });
 
-// nik1v
-
-    </script>
+</script>
     <script>
         let enigma;
 
@@ -757,7 +728,6 @@ document.getElementById("decodeBtn").addEventListener("click", () => {
                 const letter = button.getAttribute('data-letter');
                 const encodedLetter = enigma.encodeCharacter(letter);
 
-                // Illumina la lettera della tastiera sopra dio can, ma alla fine è una funz di css
                 document.querySelectorAll('.output-letter').forEach(outputLetter => {
                     outputLetter.classList.remove('active');
                     if (outputLetter.getAttribute('data-letter') === encodedLetter) {
@@ -765,7 +735,6 @@ document.getElementById("decodeBtn").addEventListener("click", () => {
                     }
                 });
 
-                // questo coso aggiorna lo stato rotori
                 const rotorState = enigma.getState();
                 updateDigitalRotorDisplays(rotorState);
             });
@@ -808,6 +777,3 @@ window.addEventListener('load', () => {
     </div>
 </body>
 </html>
-
-
-<!-- nik1v -->
