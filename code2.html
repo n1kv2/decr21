@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EN?DECR2nik1v nd flr</title>
+    <script>
+        // Controlla lo stato di sblocco all'avvio
+        window.addEventListener('load', () => {
+            const isUnlocked = sessionStorage.getItem('isUnlocked');
+            if (isUnlocked !== 'true') {
+                // Se l'accesso non è sbloccato, reindirizza alla pagina di login
+                window.location.href = "index.html";
+            }
+        });
+    </script>
+</head>
+
+<style>
+/* Stili Generali */
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #f0f2f5; /* Sfondo grigio chiaro */
+    color: #333;
+    display: flex;
+    flex-direction: column; /* Allinea container e bottone verticalmente */
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px 0; /* Aggiunge un po' di spazio sopra e sotto */
+    box-sizing: border-box;
+}
+
+.container {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 15px; /* Bordi più arrotondati */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Ombra più morbida */
+    width: 90%;
+    max-width: 500px; /* Larghezza ottimale per questo form */
+    text-align: left; /* Allinea le label a sinistra */
+    margin-bottom: 20px; /* Spazio prima del pulsante menu */
+}
+
+h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 30px;
+    color: #222;
+    font-size: 2.2em;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600; /* Testo label più marcato */
+    font-size: 1.05em;
+    color: #444;
+}
+
+/* Stile per tutti gli input, textarea e select */
+textarea, 
+input[type="text"], 
+select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px; /* Bordi arrotondati */
+    font-size: 1.05em;
+    font-family: 'Roboto Mono', monospace; /* Font monospace per coerenza */
+    color: #333;
+    background-color: #fff;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    box-sizing: border-box; /* Cruciale per il width 100% */
+}
+
+textarea {
+    resize: none;
+    min-height: 120px; /* Altezza minima per le textarea */
+}
+
+textarea:focus, 
+input[type="text"]:focus, 
+select:focus {
+    border-color: #000; /* Colore al focus */
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.05), 0 0 0 3px rgba(0,0,0,0.1);
+    outline: none;
+}
+
+/* Pulsante Esegui */
+button[onclick="processText()"] {
+    width: 100%;
+    padding: 12px 30px;
+    background-color: #000000;
+    color: #ffffff;
+    border: none;
+    border-radius: 25px; /* Pill shape */
+    cursor: pointer;
+    font-size: 1.1em;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 10px; /* Spazio sopra il pulsante */
+}
+
+button[onclick="processText()"]:hover {
+    background-color: #333333;
+    transform: translateY(-2px); /* Lieve sollevamento */
+}
+
+/* Label Risultato */
+.risultato-label {
+    margin-top: 30px; /* Più spazio prima del risultato */
+}
+
+/* Textarea Risultato */
+#risultato {
+    background-color: #f8f8f8; /* Sfondo leggermente grigio per output */
+    color: #555;
+    font-weight: 500;
+}
+
+/* Pulsante Menu */
+.link-button-container {
+    margin: 0;
+    padding: 0;
+    width: auto; /* Rimuove la larghezza fissa */
+}
+
+.link-button {
+    background-color: #000000; /* Grigio per azione secondaria */
+    color: #ffffff;
+    border: none;
+    border-radius: 25px;
+    padding: 12px 25px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.link-button:hover {
+    background-color: #5a6268;
+    transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .container {
+        padding: 25px;
+    }
+
+    h1 {
+        font-size: 1.8em;
+    }
+}
+</style>
+
+
+<body>
+    <div class="container">
+        <h1>Porta 2</h1>
+        <div class="input-group">
+            <label for="testo">Testo:</label>
+            <textarea id="testo" placeholder="testo"></textarea>
+        </div>
+        <div class="input-group">
+            <label for="chiave">Clavis aurea:</label>
+            <input type="text" id="chiave" placeholder="Inserisci la chiave">
+        </div>
+        <div class="input-group">
+            <label for="mode">Modalità:</label>
+            <select id="mode">
+                <option value="c">C</option>
+                <option value="d">D</option>
+            </select>
+        </div>
+        <button onclick="processText()">Esegui</button>
+        <div class="input-group">
+            <label for="risultato" class="risultato-label">Risultato:</label>
+            <textarea id="risultato" readonly></textarea>
+        </div>
+    </div>
+    <script>
+function cv(testo, chiave, mode = "c") {
+    testo = testo.toUpperCase();
+    chiave = chiave.toUpperCase();
+    let risultato = "";
+
+    let chiave_indice = 0;
+    for (let carattere of testo) {
+        if (/[A-Z]/.test(carattere)) {
+            let shift = chiave.charCodeAt(chiave_indice) - 'A'.charCodeAt(0);
+            if (mode === "d") {
+                shift = -shift;
+            }
+
+            let nuova_lettera = String.fromCharCode((carattere.charCodeAt(0) - 'A'.charCodeAt(0) + shift + 26) % 26 + 'A'.charCodeAt(0));
+            risultato += nuova_lettera;
+
+            chiave_indice = (chiave_indice + 1) % chiave.length;
+        } else {
+            risultato += carattere;
+        }
+    }
+
+    return risultato;
+}
+
+function processText() {
+    const testo = document.getElementById("testo").value;
+    const chiave = document.getElementById("chiave").value;
+    const mode = document.getElementById("mode").value;
+
+    const risultato = cv(testo, chiave, mode);
+    document.getElementById("risultato").value = risultato;
+}
+
+// nik1v
+
+    </script>
+
+    <div class="link-button-container">
+        <a href="menu.html"><button class="link-button">Menu selezione</button></a>
+    </div>
+</body>
+</html>
+
+<!-- nik1v -->
