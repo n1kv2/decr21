@@ -8,7 +8,7 @@
 </head>
 <style>
 body {
-    font-family: 'Times New Roman', serif;
+    font-family: 'Roboto', sans-serif;
     background-color: #f4f4f4;
     display: flex;
     justify-content: center;
@@ -79,7 +79,7 @@ p {
     border: none;
     outline: none;
     background: transparent;
-    font-family: 'Times New Roman', serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 16px;
     width: 100%;
 }
@@ -90,7 +90,7 @@ p {
     border: none;
     border-radius: 25px;
     padding: 10px 20px;
-    font-family: 'Times New Roman', serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 16px;
     cursor: pointer;
     transition: background-color 0.3s ease;
@@ -148,7 +148,6 @@ p {
         <h1>Benvenuto nella Geheimtür</h1>
         <p>Inserisci la password per accedere al servizio.</p>
         
-        <!-- led -->
         <div class="led-container">
             <div class="led-red active"></div>
             <div class="led-green"></div>
@@ -159,12 +158,10 @@ p {
             <input type="password" id="passwordInput" placeholder="Inserisci la password">
         </div>
         
-        <button id="unlockBtn" class="link-button">Sblocca accesso (1)</button>
+        <button id="unlockBtn" class="link-button">Sblocca accesso</button>
         
-        <!-- mess di avviso -->
         <p id="warningMessage" style="color: red; display: none;">Il servizio è bloccato. Inserisci la password di sblocco.</p>
         
-        <!-- 2 fase (che rimane all'inizio nascosta) -->
         <div id="secondStep" style="display: none;">
             <h2>Inserisci la combinazione</h2>
             <div class="combination-lock">
@@ -187,10 +184,10 @@ p {
     </div>
 
     <script>
-const HASHED_PASSWORD = "f8cb599d9ba7edcebd8fda08ae5d366461ee02dfdd17ae2274f079895815024a"; // Hash psw
-const CORRECT_COMBINATION_HASH = "edf47512eec1fbc8389dda7f4212505250ef02cc376487bdc8abefe8489cb035"; // Hash lucchetto
+const HASHED_PASSWORD = "f8cb599d9ba7edcebd8fda08ae5d366461ee02dfdd17ae2274f079895815024a"; 
+const CORRECT_COMBINATION_HASH = "edf47512eec1fbc8389dda7f4212505250ef02cc376487bdc8abefe8489cb035"; 
 let isUnlocked = false;
-let currentCombination = ["0", "0", "0", "0"]; //iniz. combinazione
+let currentCombination = ["0", "0", "0", "0"]; 
 
 function hashPassword(password) {
     const encoder = new TextEncoder();
@@ -200,23 +197,21 @@ function hashPassword(password) {
     });
 }
 
-// 1 fase
 document.getElementById('unlockBtn').addEventListener('click', async () => {
     const password = document.getElementById('passwordInput').value;
     const hashedPassword = await hashPassword(password);
 
     if (hashedPassword === HASHED_PASSWORD) {
-        // Sblocca la prima fase
+        
         isUnlocked = true;
         document.querySelector('.led-red').classList.remove('active');
         document.querySelector('.led-green').classList.add('active');
 
         
         sessionStorage.setItem('isUnlocked', 'true');
-        // Nasconde il messaggio di errore quando si sbaglia almeno una volta la password e poi si fa giusta
         document.getElementById('warningMessage').style.display = 'none';
         
-        // questo mostra la 2 fase
+        
         document.getElementById('secondStep').style.display = 'block';
     } else {
         alert("Password errata!");
@@ -225,7 +220,6 @@ document.getElementById('unlockBtn').addEventListener('click', async () => {
     }
 });
 
-// cambio numeri del lucchetto de ddio
 document.querySelectorAll('.rotella').forEach((rotella, index) => {
     rotella.addEventListener('click', () => {
         let currentNumber = parseInt(rotella.querySelector('.number').textContent);
@@ -235,7 +229,6 @@ document.querySelectorAll('.rotella').forEach((rotella, index) => {
     });
 });
 
-// 2 fase
 document.getElementById('unlockCombinationBtn').addEventListener('click', async () => {
     const enteredCombination = currentCombination.join('');
     const hashedCombination = await hashPassword(enteredCombination); 
@@ -245,10 +238,10 @@ document.getElementById('unlockCombinationBtn').addEventListener('click', async 
         document.getElementById('combinationMessage').style.color = "green";
         document.getElementById('combinationMessage').style.display = 'block';
 
-        // Reindirizza dopo 2 secondi
+        
         setTimeout(() => {
             window.location.href = "menu.html";
-        }, 2000);
+        }, 3000);
     } else {
         document.getElementById('combinationMessage').textContent = "Combinazione errata! Riprova";
         document.getElementById('combinationMessage').style.color = "red";
@@ -259,4 +252,3 @@ document.getElementById('unlockCombinationBtn').addEventListener('click', async 
     </script>
 </body>
 </html>
-

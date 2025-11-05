@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guida all'Uso | EN?DECR2nik1v</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-color: #000000;
+            --secondary-color: #f0c000; 
+            --background-light: #f8f9fa;
+            --text-dark: #212529;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--background-light);
+            color: var(--text-dark);
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+
+        .container {
+            background-color: #ffffff;
+            padding: 40px 50px;
+            border-radius: 10px; 
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1); 
+            width: 90%;
+            max-width: 900px; 
+            text-align: left; 
+            margin-bottom: 30px; 
+        }
+
+        h1 {
+            font-weight: 700;
+            font-size: 2.8em;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var( --text-dark);
+            text-align: center;
+        }
+
+        p {
+            line-height: 1.7;
+            margin-bottom: 15px;
+            color: var(--text-dark);
+            font-weight: 300;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            margin-top: 40px;
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        .section-header i {
+            font-size: 1.5em;
+            color: var(--primary-color);
+            margin-right: 15px;
+        }
+
+        .section-header h2 {
+            font-weight: 700;
+            font-size: 1.8em;
+            color: var(--primary-color);
+            margin: 0;
+        }
+
+        
+        .toggle-item {
+            margin-bottom: 10px;
+            border: 1px solid #e9ecef;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .toggle-header {
+            background-color: #f8f9fa;
+            padding: 15px 20px;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 1.1em;
+            color: var(--text-dark);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.2s;
+            border-left: 4px solid var(--primary-color);
+        }
+        
+        
+        .section-enigma .toggle-header { border-left-color: var(--secondary-color) } 
+        .section-vigenere .toggle-header { border-left-color: #008cba; } 
+
+        .toggle-header:hover {
+            background-color: #e9ecef;
+        }
+
+        .toggle-header i {
+            transition: transform 0.3s ease;
+        }
+        
+        .toggle-header.active i {
+            transform: rotate(180deg);
+        }
+
+        .toggle-content {
+            padding: 0 20px;
+            background-color: #ffffff;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out, padding 0.4s ease-out;
+            border-top: 1px solid #e9ecef;
+        }
+        
+        .toggle-content.show {
+            max-height: 500px; 
+            padding: 20px;
+        }
+        
+        .toggle-content p {
+            font-weight: 400;
+            margin-top: 0;
+        }
+        
+        .toggle-content ul {
+            list-style: none;
+            padding-left: 20px;
+        }
+
+        .toggle-content ul li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 8px;
+            color: var(--text-dark);
+            font-weight: 400;
+        }
+        
+        .toggle-content ul li::before {
+            content: "\f058"; 
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            color: var(--primary-color);
+            position: absolute;
+            left: 0;
+        }
+
+        .code {
+            font-family: monospace;
+            background-color: #fff0f0; 
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: #c90000; 
+            font-weight: 700;
+            border: 1px solid #c90000; 
+        }
+        
+        .code-block {
+            display: inline-block;
+            margin-top: 5px;
+            background-color: #e9ecef;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.95em;
+            color: var(--primary-color);
+        }
+
+        .link-button {
+            background-color: var(--primary-color);
+            color: #ffffff;
+            border: none;
+            border-radius: 25px;
+            padding: 12px 30px;
+            font-family: 'Roboto', sans-serif;
+            font-size: 1em;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 30px;
+        }
+
+        .link-button:hover {
+            background-color: #333333;
+            transform: translateY(-2px);
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 30px;
+            }
+            h1 {
+                font-size: 2em;
+            }
+            .section-header h2 {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Guida all'Uso del Sistema</h1>
+        <p>Questa guida presenta istruzioni dettagliate sul funzionamento di Geheimtür. Clicca sul titolo di ogni sezione per espandere e visualizzare le informazioni.</p>
+        
+        <div class="section-header">
+            <i class="fas fa-key"></i>
+            <h2>1. Sezione GM (settore)</h2>
+        </div>
+        
+        <p>Cifratura di elaborazione a settore rotante configurabile.</p>
+        
+        <div class="toggle-item section-enigma">
+            <div class="toggle-header" onclick="toggleContent(this)">
+                <span class="header-text">Configurazione dei Settori</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="toggle-content">
+                <p>I settori sono il cuore del meccanismo. La loro configurazione iniziale è cruciale:</p>
+                <ul>
+                    <li>Selezione: Scegli quale settore utilizzare (I, II, III, IV, V). Il settore definisce l'ordine di elaborazione.</li>
+                    <li>Anello <span class="code">Num</span>: Indica la condizione di cifratura iniziale per ogni settore (valore 0-25).</li>
+                    <li>Posizione di Partenza <span class="code">Let</span>: Corrisponde alla misura di avanzamento (valore A-Z).</li>
+                    <li>ricorda di <bold>RUOTARE </bold>il dispositivo durante la digitazione</li>
+                </ul>
+                
+                <p>⚠️ Avviso: Dopo aver impostato i valori <span class="code">Num</span> e <span class="code">Let</span>, premi <span class="code">Inizializza Settori</span> per iniziare la de/cifratura. <br>
+                Ad ogni errore o per ogni nuova composizione è <bold> necessario</bold> ristabilire le posizioni iniziali, inizializzando i settori. </p>
+            </div>
+        </div>
+        
+        <div class="toggle-item section-enigma">
+            <div class="toggle-header" onclick="toggleContent(this)">
+                <span class="header-text">Combinatore e Dispositore</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="toggle-content">
+                <p>Questi componenti aggiungono complessità alla cifratura:</p>
+                <ul>
+                    <li>Combinatore: Seleziona la combinazione (B1, C1, B2, C2) per stabilire il componente di reversibilità del messaggio</li>
+                    <li>Dispositore: Consente lo scambio di coppie di lettere, per un livello di sicurezza aggiuntivo.</li>
+                        <span class="code code-block">Formato richiesto: 'AB CD EF...' (massimo 10 coppie, separate da spazio).</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+
+        <div class="section-header">
+            <i class="fas fa-file-code"></i>
+            <h2>2. Sezione PM (testuale)</h2>
+        </div>
+        
+        <p>Cifratura polialfabetica strutturata con chiave di accesso.</p>
+
+        <div class="toggle-item section-vigenere">
+            <div class="toggle-header" onclick="toggleContent(this)">
+                <span class="header-text">Istruzioni Operative</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="toggle-content">
+                <p>I campi sono semplici e diretti:</p>
+                <ul>
+                    <li>Testo: Inserisci il messaggio da elaborare.</li>
+                    <li>Clavis aurea: Solo lettere, senza spazi o caratteri speciali.</li>
+                    <p style="margin-top: 5px;">Seleziona <span class="code">C</span> per Cifrare o <span class="code">D</span> per Decifrare.</p>
+                    </li>
+                </ul>
+                <p>Dopo aver inserito i dati, clicca <span class="code">Esegui</span> per ottenere il risultato nel campo sottostante.</p>
+            </div>
+        </div>
+
+
+        <div style="text-align: center; margin-top: 40px;">
+            <a href="menu.html" class="link-button"><i class="fas fa-arrow-left"></i> Torna al Menu Principale</a>
+        </div>
+    </div>
+    
+    <script>
+        function toggleContent(header) {
+            
+            const content = header.nextElementSibling;
+            const icon = header.querySelector('i');
+            
+            
+            if (content.classList.contains('show')) {
+                content.classList.remove('show');
+                header.classList.remove('active');
+            } else {
+                
+                document.querySelectorAll('.toggle-content.show').forEach(openContent => {
+                    openContent.classList.remove('show');
+                    openContent.previousElementSibling.classList.remove('active');
+                });
+
+                content.classList.add('show');
+                header.classList.add('active');
+            }
+        }
+    </script>
+</body>
+</html>
